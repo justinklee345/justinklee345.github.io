@@ -1,5 +1,5 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,89 +8,40 @@
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<div class="container-fluid">
-			<h1>CodingValley Formatter</h1>
-			<div class="input-group">
-				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-					<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
-					<label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+		<div class="container">
+			<h1 class="my-3">CV Code Formatter for Hygraph</h1>
+			<div class="row">
+				<div class="col-md-12 col-lg-6 mb-4">
+					<label for="inputCode"><h2>Input Code</h2></label>
+					<textarea class="form-control mb-2" id="inputCode" rows="12" onkeydown="handleKeyDown.call(this, event)"></textarea>
 
-					<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
-					<label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+					<div class="btn-group" id="languageSelect" role="group" aria-label="Basic radio toggle button group">
+						<input type="radio" class="btn-check" name="btnradio" id="btn-py" value="py" autocomplete="off" checked />
+						<label class="btn btn-outline-info" for="btn-py">Python</label>
 
-					<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" />
-					<label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+						<input type="radio" class="btn-check" name="btnradio" id="btn-html" value="html" autocomplete="off" />
+						<label class="btn btn-outline-info" for="btn-html">HTML</label>
+
+						<input type="radio" class="btn-check" name="btnradio" id="btn-css" value="css" autocomplete="off" />
+						<label class="btn btn-outline-info" for="btn-css">CSS</label>
+
+						<input type="radio" class="btn-check" name="btnradio" id="btn-js" value="js" autocomplete="off" />
+						<label class="btn btn-outline-info" for="btn-js">JavaScript</label>
+					</div>
+					<button class="btn btn-info" onclick="formatCode()">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 2 16 16">
+							<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+						</svg>
+					</button>
+				</div>
+				<div class="col-md-12 col-lg-6 mb-4">
+					<label for="outputCode"><h2>Formatted Code</h2></label>
+					<textarea class="form-control" id="outputCode" rows="12" readonly></textarea>
 				</div>
 			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">Before Code Format</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-			</div>
-
-			<input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly />
 		</div>
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 		<script src="index.js"></script>
 	</body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Text Translator</title>
-		<!-- Link to Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-	</head>
-	<body>
-		<div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 col-lg-6">
-                    <!-- Content for the first column -->
-                </div>
-                <div class="col-md-12 col-lg-6">
-                <!-- Content for the second column -->
-                </div>
-
-                <div class="col-md-12">
-                    <h2 class="mb-4">Text Translator</h2>
-                    <div class="form-group mt-4">
-                        <label for="languageSelect">Select Language:</label>
-                        <select class="form-control" id="languageSelect">
-                          <option value="en">English</option>
-                          <option value="es">Spanish</option>
-                          <option value="fr">French</option>
-                          <!-- Add more options for other languages -->
-                        </select>
-                      </div>
-                    <div class="form-group">
-                        <div class="d-flex">
-                        <div class="flex-grow-1 mr-2">
-                      <label for="inputText">Input Code</label>
-                      <textarea class="form-control" id="inputText" rows="4"></textarea>
-                    </div>
-                    <button class="btn btn-primary align-self-end" onclick="translateText()">Translate</button>
-                    <div class="flex-grow-1 ml-2">
-                      <label for="outputText">Translated Text:</label>
-                      <textarea class="form-control" id="outputText" rows="4" readonly></textarea>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-		<script>
-			function translateText() {
-				var inputText = document.getElementById("inputText").value;
-				var selectedLanguage = document.getElementById("languageSelect").value;
-				document.getElementById("outputText").value = inputText + " (Translated to " + selectedLanguage + ")";
-			}
-		</script>
-	</body>
 </html>
-
