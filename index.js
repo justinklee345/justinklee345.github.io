@@ -13,24 +13,17 @@ function handleKeyDown(e) {
 }
 
 async function formatCode() {
-    console.log("come on")
-    const response = await fetch("https://dog.ceo/api/breeds/image/random");
-    const formatted_code = await response.json()
-    console.log(formatted_code)
+    const inputCode = document.getElementById("inputCode").value;
+    var selected_language = document.querySelector('input[name="btnradio"]:checked').value;
 
     const url = "https://asia-northeast3-cv-automation-395116.cloudfunctions.net/cv-formatter?"
-        // new URLSearchParams({ name: "Justin" }).toString()
 
-    const testing = await fetch(url + new URLSearchParams({
-        name: 'Justin'
+    const response = await fetch(url + new URLSearchParams({
+        input_code: inputCode,
+        lang: selected_language
     }))
-    console.log(testing)
 
-    var inputCode = document.getElementById("inputCode").value;
-    console.log(inputCode)
+    const formattedCode = await response.text()
 
-    var selected_language = document.querySelector('input[name="btnradio"]:checked').value;
-    console.log(selected_language)
-
-    document.getElementById("outputCode").value = formatted_code.message;
+    document.getElementById("outputCode").value = formattedCode;
 }
