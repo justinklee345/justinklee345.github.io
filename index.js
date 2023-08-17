@@ -13,7 +13,6 @@ function handleKeyDown(e) {
 }
 
 async function formatCode() {
-    console.log("well hello there?")
     const response = await fetch("https://dog.ceo/api/breeds/image/random");
     const formatted_code = await response.json()
     console.log(formatted_code)
@@ -23,7 +22,7 @@ async function formatCode() {
 
     const testing = await fetch(url + new URLSearchParams({
         name: 'Justin'
-    }))
+    }), { mode: 'no-cors'})
     console.log(testing)
 
     var inputCode = document.getElementById("inputCode").value;
