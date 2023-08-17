@@ -13,6 +13,7 @@ function handleKeyDown(e) {
 }
 
 async function formatCode() {
+    console.log("come on")
     const response = await fetch("https://dog.ceo/api/breeds/image/random");
     const formatted_code = await response.json()
     console.log(formatted_code)
