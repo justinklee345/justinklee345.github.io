@@ -18,6 +18,14 @@ async function formatCode() {
     const formatted_code = await response.json()
     console.log(formatted_code)
 
+    const url = "https://asia-northeast3-cv-automation-395116.cloudfunctions.net/cv-formatter?"
+        // new URLSearchParams({ name: "Justin" }).toString()
+
+    const testing = await fetch(url + new URLSearchParams({
+        name: 'Justin'
+    }))
+    console.log(testing)
+
     var inputCode = document.getElementById("inputCode").value;
     console.log(inputCode)
 
