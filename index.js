@@ -22,7 +22,7 @@ async function formatCode() {
 
     const testing = await fetch(url + new URLSearchParams({
         name: 'Justin'
-    }), { mode: 'no-cors'})
+    }))
     console.log(testing)
 
     var inputCode = document.getElementById("inputCode").value;
