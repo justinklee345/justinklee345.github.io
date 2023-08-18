@@ -22,6 +22,7 @@ async function formatCode() {
         input_code: inputCode,
         lang: selected_language
     }))
+    console.log(response)
 
     const formattedCode = await response.text()
 
